@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 			if (Pointer_Function)
 				Pointer_Function(NULL, line_num);
 			else
-				printf("L%d: unknown instruction %s\n", (int)line_num, list.inst_oper[0]);
+				fprintf(stderr, "L%d: unknown instruction %s\n", (int)line_num, list.inst_oper[0]);
 		}
 		line_num++;
 		free(line);
