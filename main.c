@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 	void (*Pointer_Function)(stack_t **, unsigned int);
 
 	if (argc != 2)
-		dprintf(STDERR_FILENO, "USAGE: monty file\n"), exit(EXIT_FAILURE);
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 
 
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
