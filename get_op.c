@@ -11,6 +11,7 @@ void (*get_op(char *inst_oper))(stack_t **stack, unsigned int lin_num)
 		{"mod",   _mod},
 		{"div",   _div},
 		{"pchar", _pchar},
+		{"rotl",  _rotl},
 		{NULL, NULL}
 	};
 

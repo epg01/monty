@@ -62,3 +62,24 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 		exit (EXIT_FAILURE);
 	}
 }
+
+void _rotl(stack_t **stack, unsigned int lin_num)
+{
+	(void)stack;
+	(void)lin_num;
+
+	if (list.Size)
+	{
+		stack_t *Element;
+
+		Element         = list.Head;
+		list.Head       = list.Head->next;
+		list.Head->prev = Element->prev;
+
+		Element->next   = list.Tail->next;
+		Element->prev   = list.Tail;
+		list.Tail->next = Element;
+		list.Tail       = Element;
+	}
+}
+
