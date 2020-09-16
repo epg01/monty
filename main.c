@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t nread;
 	size_t line_num;
+	void (*Pointer_Function)(stack_t **, unsigned int);
 
 	if (argc != 2)
 		dprintf(STDERR_FILENO, "USAGE: monty file\n"), exit(EXIT_FAILURE);
@@ -41,7 +42,13 @@ int main(int argc, char *argv[])
 		(list.inst_oper)[0] = strtok(line, "\t\n ");
 		(list.inst_oper)[1] = strtok(NULL, "\t\n ");
 		if (list.inst_oper[0])
-			get_op((list.inst_oper)[0])(NULL, line_num);
+		{
+			Pointer_Function = get_op((list.inst_oper)[0]);
+			if (Pointer_Function)
+				Pointer_Function(NULL, line_num);
+			else
+				printf("L%d: unknown instruction %s\n", (int)line_num, list.inst_oper[0]);
+		}
 		line_num++;
 		free(line);
 		line = NULL;
