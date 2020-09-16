@@ -1,17 +1,17 @@
 #include "monty.h"
- 
+
 int List_Ins_Next(List *list, stack_t *Element, int Data)
 {
         stack_t *New_Element = NULL;
         New_Element = (stack_t *)malloc(sizeof(stack_t));
-        
+
         if (!New_Element)
                 return (1);
-        
+
         New_Element->n = Data;
         if (!Element)
         {
-		if (!List_Size(list))  
+		if (!List_Size(list))
                         list->Tail  = New_Element;
 		New_Element->next = list->Head;
 		if (!list->Head)
@@ -27,7 +27,7 @@ int List_Ins_Next(List *list, stack_t *Element, int Data)
         {
 		New_Element->next = Element->next;
 		New_Element->prev = Element;
-                  
+
 		if (!Element->next)
 		{
                         list->Tail    = New_Element;
@@ -73,7 +73,7 @@ int List_Rem(List *list, stack_t *Element)
 			list->Tail = Element->prev;
 
                 Old_Element   = Element;
-                
+
                 if (Element->prev)
                 {
                         Element->next->prev = Element->prev;

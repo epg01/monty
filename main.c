@@ -5,6 +5,12 @@
  *
  */
 
+void Destroy(List *list)
+{
+	while (list->Size)
+		List_Rem(list, NULL);
+}
+
 int main(int argc, char *argv[])
 {
 	FILE *fd;
@@ -40,6 +46,7 @@ int main(int argc, char *argv[])
 		line = NULL;
 		len  = 0;
 	}
+	Destroy(&list);
 
 	fclose(fd);
 	free(line);
