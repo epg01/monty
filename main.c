@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 		dprintf(STDERR_FILENO, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 
+
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 	{
@@ -36,8 +37,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	list.Fd = fd;
 	line_num = 1;
-	list.Solve    = &line;
 	while ((nread = getline(&line, &len, fd)) != -1)
 	{
 		(list.inst_oper)[0] = strtok(line, "\t\n ");

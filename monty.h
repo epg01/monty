@@ -42,10 +42,10 @@ typedef struct instruction_s
 typedef struct List_
 {
 	int Size;
-	char **Solve;
 	struct stack_s *Head;
 	struct stack_s *Tail;
 	char *inst_oper[2];
+	FILE *Fd;
 } List;
 
 /*

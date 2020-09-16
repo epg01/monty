@@ -17,8 +17,8 @@ void _push(stack_t **stack, unsigned int lin_num)
 		else
 		{
 			printf("L%d: usage: push integer\n", lin_num);
-			free(*(list.Solve));
 			free(list.inst_oper[0]);
+			fclose(list.Fd);
 			Destroy(&list);
 			exit(EXIT_FAILURE);
 		}
@@ -28,9 +28,8 @@ void _push(stack_t **stack, unsigned int lin_num)
 	else
 	{
 			printf("L%d: usage: push integer\n", lin_num);
-			free(*(list.Solve));
 			free(list.inst_oper[0]);
-			list.Solve = NULL;
+			fclose(list.Fd);
 			Destroy(&list);
 			exit(EXIT_FAILURE);
 	}
@@ -46,7 +45,8 @@ void _pall(stack_t **stack, unsigned int lin_num)
 	(void)stack;
 	(void)lin_num;
 
-	Pall(list.Head);
+	if (list.Size)
+		Pall(list.Head);
 }
 /**
  * _pint- prints the element of the stack
@@ -62,6 +62,9 @@ void _pint(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		printf("L%d: can't pint, stack empty\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
