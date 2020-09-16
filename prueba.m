@@ -1,4 +1,5 @@
-push     2
-        push    4
-    push  e  5
- pall  fkjds
+push 3
+push 6
+pall
+mul
+pall

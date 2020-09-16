@@ -6,6 +6,8 @@ void (*get_op(char *inst_oper))(stack_t **stack, unsigned int lin_num)
 	instruction_t instructions_fun[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"sub",  _sub},
+		{"mul",  _mul},
 		{NULL, NULL}
 	};
 

@@ -51,3 +51,39 @@ void Pall(stack_t *Element)
 		Pall(Element->next);
 	}
 }
+
+int List_Rem(List *list, stack_t *Element)
+{
+	stack_t *Old_Element = NULL;
+	int Old_Number;
+	if (!Element)
+	{
+		Old_Element            = list->Head;
+
+		if (list->Head->next)
+			list->Head->next->prev = NULL;
+		list->Head             = list->Head->next;
+
+		if (List_Size(list) == 1)
+			list->Tail = NULL;
+	}
+	else
+	{
+                if (!Element->next)
+			list->Tail = Element->prev;
+
+                Old_Element   = Element;
+                
+                if (Element->prev)
+                {
+                        Element->next->prev = Element->prev;
+                        Element->prev->next = Element->next;
+                }
+		if (List_Size(list) == 1)
+			list->Head = NULL;
+	}
+	Old_Number = Old_Element->n;
+	free(Old_Element);
+	list->Size--;
+	return (Old_Number);
+}

@@ -44,6 +44,7 @@ typedef struct List_
         int Size;
         struct stack_s *Head;
         struct stack_s *Tail;
+	char *inst_oper[2];
 }List;
 
 /*
@@ -63,11 +64,12 @@ int List_Ins_Next(List *list, stack_t *Element, int Data);
 int Push_Stack(List *list, int Data);
 int Push_Queue(List *list, int Data);
 void Pall(stack_t *Element);
+int List_Rem(List *list, stack_t *Element);
+int Pop_Stack(List *list);
+int Pop_Queue(List *list);
 
 /* extern variables*/
 
-char *inst_oper[2];
-unsigned int line_num;
 List list;
 
 /*fn tokenaze and, open and read file*/
@@ -78,6 +80,7 @@ void (*get_op(char *inst_oper))(stack_t **stack, unsigned int lin_num);
 
 void _push(stack_t **stack, unsigned int lin_num);
 void _pall(stack_t **stack, unsigned int lin_num);
-
+void _sub(stack_t **stack, unsigned int lin_num);
+void _mul(stack_t **stack, unsigned int lin_num);
 
 #endif
