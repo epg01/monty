@@ -16,36 +16,35 @@ int List_Ins_Next(List *list, stack_t *element, int Data)
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	new_element->n = Data;
 	if (!element)
 	{
-	if (!List_Size(list))
-		list->Tail  = new_element;
-	new_element->next = list->Head;
-	if (!list->Head)
-		new_element->prev = list->Head;
-	else
-	{
-		new_element->prev = list->Head->prev;
-		list->Head->prev = new_element;
-	}
-	list->Head = new_element;
-	}
-	else
-	{
-	new_element->next = element->next;
-	new_element->prev = element;
-	if (!element->next)
-	{
-		list->Tail = new_element;
-		element->next = new_element;
+		if (!List_Size(list))
+			list->Tail  = new_element;
+		new_element->next = list->Head;
+		if (!list->Head)
+			new_element->prev = list->Head;
+		else
+		{
+			new_element->prev = list->Head->prev;
+			list->Head->prev = new_element;
+		}
+		list->Head = new_element;
 	}
 	else
 	{
-		element->next->prev = new_element;
-		element->next = new_element;
-	}
+		new_element->next = element->next;
+		new_element->prev = element;
+		if (!element->next)
+		{
+			list->Tail = new_element;
+			element->next = new_element;
+		}
+		else
+		{
+			element->next->prev = new_element;
+			element->next = new_element;
+		}
 	}
 	list->Size++;
 	return (0);
