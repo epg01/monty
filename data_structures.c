@@ -14,6 +14,7 @@ int List_Ins_Next(List *list, stack_t *element, int Data)
 	if (!new_element)
 	{
 		printf("Error: malloc failed\n");
+		Destroy(list);
 		exit(EXIT_FAILURE);
 	}
 	new_element->n = Data;

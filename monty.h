@@ -67,7 +67,7 @@ void Pall(stack_t *Element);
 int List_Rem(List *list, stack_t *Element);
 int Pop_Stack(List *list);
 int Pop_Queue(List *list);
-
+void Destroy(List *list);
 /* extern variables*/
 
 List list;
