@@ -22,7 +22,8 @@ int main(int argc, char *argv[])
 	{
 		(list.inst_oper)[0] = strtok(line, "\t\n ");
 		(list.inst_oper)[1] = strtok(NULL, "\t\n ");
-		get_op((list.inst_oper)[0])(NULL, line_num);
+		if (list.inst_oper[0])
+			get_op((list.inst_oper)[0])(NULL, line_num);
 		line_num++;
 		free(line);
 		line = NULL;

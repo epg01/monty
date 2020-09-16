@@ -82,5 +82,10 @@ void _push(stack_t **stack, unsigned int lin_num);
 void _pall(stack_t **stack, unsigned int lin_num);
 void _sub(stack_t **stack, unsigned int lin_num);
 void _mul(stack_t **stack, unsigned int lin_num);
+void _div(stack_t **stack, unsigned int lin_num);
+void _mod(stack_t **stack, unsigned int lin_num);
+void _pchar(stack_t **stack, unsigned int lin_num);
+void _pstr(stack_t **stack, unsigned int lin_num);
+void _rotl(stack_t **stack, unsigned int lin_num);
 
 #endif

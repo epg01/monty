@@ -1,5 +1,4 @@
 push 3
-push 6
-pall
-mul
+push 50
+pchar
 pall
