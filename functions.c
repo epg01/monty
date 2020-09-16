@@ -1,10 +1,12 @@
 #include "monty.h"
+
 /**
  * _push- insert new element on the top of the stack
  * @stack: double pointer to doubly linked list
  * @lin_num: number of line to be analize
  * Return: none
  */
+
 void _push(stack_t **stack, unsigned int lin_num)
 {
 	int index = 0;
@@ -16,7 +18,7 @@ void _push(stack_t **stack, unsigned int lin_num)
 			index++;
 		else
 		{
-			printf("L%d: usage: push integer\n", lin_num);
+			fprintf(stderr, "L%d: usage: push integer\n", lin_num);
 			free(list.inst_oper[0]);
 			fclose(list.Fd);
 			Destroy(&list);
@@ -27,11 +29,11 @@ void _push(stack_t **stack, unsigned int lin_num)
 		Push_Stack(&list, atoi((list.inst_oper)[1]));
 	else
 	{
-			printf("L%d: usage: push integer\n", lin_num);
-			free(list.inst_oper[0]);
-			fclose(list.Fd);
-			Destroy(&list);
-			exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: usage: push integer\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
+		exit(EXIT_FAILURE);
 	}
 }
 /**
@@ -61,7 +63,7 @@ void _pint(stack_t **stack, unsigned int lin_num)
 		printf("%d\n", list.Head->n);
 	else
 	{
-		printf("L%d: can't pint, stack empty\n", lin_num);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", lin_num);
 		free(list.inst_oper[0]);
 		fclose(list.Fd);
 		Destroy(&list);
