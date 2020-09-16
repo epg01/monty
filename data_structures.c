@@ -12,7 +12,10 @@ int List_Ins_Next(List *list, stack_t *element, int Data)
 
 	new_element = (stack_t *)malloc(sizeof(stack_t));
 	if (!new_element)
-		return (1);
+	{
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
 	new_element->n = Data;
 	if (!element)
