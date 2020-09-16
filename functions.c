@@ -10,17 +10,30 @@ void _push(stack_t **stack, unsigned int lin_num)
 	int index = 0;
 	(void)stack;
 
-	while ((list.inst_oper)[1][index])
+	while (list.inst_oper[1] && (list.inst_oper)[1][index])
 	{
 		if ((isdigit((list.inst_oper)[1][index])))
 			index++;
 		else
 		{
 			printf("L%d: usage: push integer\n", lin_num);
+			free(*(list.Solve));
+			free(list.inst_oper[0]);
+			Destroy(&list);
 			exit(EXIT_FAILURE);
 		}
 	}
-	Push_Stack(&list, atoi((list.inst_oper)[1]));
+	if (list.inst_oper[1])
+		Push_Stack(&list, atoi((list.inst_oper)[1]));
+	else
+	{
+			printf("L%d: usage: push integer\n", lin_num);
+			free(*(list.Solve));
+			free(list.inst_oper[0]);
+			list.Solve = NULL;
+			Destroy(&list);
+			exit(EXIT_FAILURE);
+	}
 }
 /**
  * _pall- prints the first element at the top of the stack

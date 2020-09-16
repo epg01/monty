@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	}
 
 	line_num = 1;
+	list.Solve    = &line;
 	while ((nread = getline(&line, &len, fd)) != -1)
 	{
 		(list.inst_oper)[0] = strtok(line, "\t\n ");
@@ -54,8 +55,8 @@ int main(int argc, char *argv[])
 		line = NULL;
 		len  = 0;
 	}
-	Destroy(&list);
 	fclose(fd);
 	free(line);
+	Destroy(&list);
 	return (0);
 }
