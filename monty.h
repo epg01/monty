@@ -37,15 +37,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 
-} instruction_t;
+}instruction_t;
 
 typedef struct List_
 {
-        int Size;
-        struct stack_s *Head;
-        struct stack_s *Tail;
+	int Size;
+	struct stack_s *Head;
+	struct stack_s *Tail;
 	char *inst_oper[2];
-}List;
+} List;
 
 /*
  * Macros
@@ -87,5 +87,9 @@ void _mod(stack_t **stack, unsigned int lin_num);
 void _pchar(stack_t **stack, unsigned int lin_num);
 void _pstr(stack_t **stack, unsigned int lin_num);
 void _rotl(stack_t **stack, unsigned int lin_num);
+void _pint(stack_t **stack, unsigned int lin_num);
+void _pop(stack_t **stack, unsigned int lin_num);
+void _swap(stack_t **stack, unsigned int lin_num);
+void _add(stack_t **stack, unsigned int lin_num);
 
 #endif
