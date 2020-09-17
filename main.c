@@ -1,6 +1,6 @@
 #include "monty.h"
 
-#define s "L%d: unknown instruction %s\n"
+#define s "L%lu: unknown instruction %s\n"
 
 /**
  * Destroy - Function destroy
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 			{
 				char *string =  list.inst_oper[0];
 
-				fprintf(stderr, s, (int)line_num, string);
+				fprintf(stderr, s, line_num, string);
 			}
 		}
 		line_num++, free(line),	line = NULL, len  = 0;
