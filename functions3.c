@@ -22,8 +22,8 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 
 	if (list.Size)
 	{
-		if (list.Head->n > 0 && list.Head->n <= 127)
-			putchar(list.Head->n);
+		if (list.Head->n >= 0 && list.Head->n <= 127)
+			printf("%c", list.Head->n);
 		else
 		{
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", lin_num);
