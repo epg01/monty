@@ -40,8 +40,9 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	list.Fd = fd;
-	line_num = 1;
+	list.Fd    = fd;
+	line_num   = 1;
+	list.Solve_Line = &line;
 	while ((nread = getline(&line, &len, fd)) != -1)
 	{
 		(list.inst_oper)[0] = strtok(line, "\t\n ");

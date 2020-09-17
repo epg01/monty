@@ -22,8 +22,7 @@ void _push(stack_t **stack, unsigned int lin_num)
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-			free(list.inst_oper[0]);
-			fclose(list.Fd);
+			free(*(list.Solve_Line)), fclose(list.Fd);
 			Destroy(&list);
 			exit(EXIT_FAILURE);
 		}
@@ -33,9 +32,9 @@ void _push(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-		free(list.inst_oper[0]);
-		fclose(list.Fd);
+		free(*(list.Solve_Line)), fclose(list.Fd);
 		Destroy(&list);
+		exit(EXIT_FAILURE);
 		exit(EXIT_FAILURE);
 	}
 }

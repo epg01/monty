@@ -45,6 +45,7 @@ typedef struct List_
 	struct stack_s *Head;
 	struct stack_s *Tail;
 	char *inst_oper[2];
+	char **Solve_Line;
 	FILE *Fd;
 } List;
 
