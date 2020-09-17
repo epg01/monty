@@ -22,13 +22,13 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 
 	if (!list.Size)
 	{
-		dprintf(2, "L%u: can't pchar, stack empty\n", nline);
+		dprintf(2, "L%u: can't pchar, stack empty\n", lin_num);
 		free(list.Solve_line), fclose(list.Fd);
 		Destroy(&list), exit(EXIT_FAILURE);
 	}
 	if (list.Head->n < 0 || list.Head->n >= 128)
 	{
-		dprintf(2, "L%u: can't pchar, value out of range\n", nline);
+		dprintf(2, "L%u: can't pchar, value out of range\n", lin_num);
 		free(list.Solve_line), fclose(list.Fd);
 		Destroy(&list), exit(EXIT_FAILURE);
 	}
