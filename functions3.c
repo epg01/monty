@@ -27,12 +27,14 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 		else
 		{
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", lin_num);
+			free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", lin_num);
+		free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
