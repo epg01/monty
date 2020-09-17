@@ -95,6 +95,9 @@ void _pop(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -118,6 +121,9 @@ void _swap(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: can't swap, stack too shortc\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }

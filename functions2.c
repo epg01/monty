@@ -21,6 +21,9 @@ void _add(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -46,6 +49,9 @@ void _sub(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -70,7 +76,10 @@ void _mul(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -95,12 +104,17 @@ void _div(stack_t **stack, unsigned int lin_num)
 		if (Number1)
 			Push_Stack(&list, Number2 / Number1);
 		else
-			fprintf(stderr, "No se puede dividir por cero");
+		{
+			fprintf(stderr, "L%d: division by zero", lin_num);
+			free(list.inst_oper[0]), fclose(list.Fd);
+			Destroy(&list), exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: can't div, stack too short\n", lin_num);
+		free(list.inst_oper[0]), fclose(list.Fd);
+		Destroy(&list), exit(EXIT_FAILURE);
 	}
 }
 
@@ -125,7 +139,10 @@ void _mod(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", lin_num);
+		free(list.inst_oper[0]);
+		fclose(list.Fd);
+		Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }

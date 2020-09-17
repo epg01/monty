@@ -1,5 +1,11 @@
-pall
+spall dksmk  lds
+
+                      
 de
-push -3
-push 3
-push - 3
+
+                    
+
+                         push 
+                                     push 3
+            pall
+
