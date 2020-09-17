@@ -109,7 +109,7 @@ void _swap(stack_t **stack, unsigned int lin_num)
 {
 	int number1 =  0, number2 = 0;
 	(void)stack;
-	if (list.Size)
+	if (list.Size > 1)
 	{
 		number1 = Pop_Stack(&list);
 		number2 = Pop_Stack(&list);
