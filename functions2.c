@@ -105,7 +105,7 @@ void _div(stack_t **stack, unsigned int lin_num)
 			Push_Stack(&list, Number2 / Number1);
 		else
 		{
-			fprintf(stderr, "L%d: division by zero", lin_num);
+			fprintf(stderr, "L%d: division by zero\n", lin_num);
 			free(list.inst_oper[0]), fclose(list.Fd);
 			Destroy(&list), exit(EXIT_FAILURE);
 		}
