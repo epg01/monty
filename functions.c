@@ -94,11 +94,9 @@ void _pop(stack_t **stack, unsigned int lin_num)
 		Pop_Stack(&list);
 	else
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack", lin_num);
-		free(list.inst_oper[0]);
-		fclose(list.Fd);
-		Destroy(&list);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", lin_num);
+		free(list.inst_oper[0]), fclose(list.Fd);
+		Destroy(&list), exit(EXIT_FAILURE);
 	}
 }
 /**

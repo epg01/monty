@@ -1,2 +1,3 @@
-push 2
-pushe 4
+push 3
+push 3
+           popi
