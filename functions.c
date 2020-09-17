@@ -107,21 +107,20 @@ void _pop(stack_t **stack, unsigned int lin_num)
  */
 void _swap(stack_t **stack, unsigned int lin_num)
 {
-	int number1 =  0, number2 = 0;
 	(void)stack;
 	if (list.Size > 1)
 	{
-		number1 = Pop_Stack(&list);
-		number2 = Pop_Stack(&list);
-		Push_Stack(&list, number1);
-		Push_Stack(&list, number2);
+		int Number1, Number2;
+
+		Number1 = Pop_Stack(&list);
+		Number2 = Pop_Stack(&list);
+		Push_Stack(&list, Number1);
+		Push_Stack(&list, Number2);
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't swap, stack too shortc\n", lin_num);
-		free(list.inst_oper[0]);
-		fclose(list.Fd);
-		Destroy(&list);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", lin_num);
+		free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }

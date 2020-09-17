@@ -1,3 +1,6 @@
 push 3
-push 3
-           popi
+push 5
+push 7
+pall
+swap
+pall
