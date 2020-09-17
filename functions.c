@@ -12,30 +12,37 @@ void _push(stack_t **stack, unsigned int lin_num)
 	int index = 0;
 	(void)stack;
 
-	if (list.inst_oper[1] && list.inst_oper[1][index] == '-')
-		index++;
-
-	while (list.inst_oper[1] && (list.inst_oper)[1][index])
-	{
-		if (isdigit((list.inst_oper)[1][index]))
-			index++;
-		else
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-			free(list.Solve_line);
-			fclose(list.Fd);
-			Destroy(&list);
-			exit(EXIT_FAILURE);
-		}
-	}
 	if (list.inst_oper[1])
+	{
+		if (list.inst_oper[1][index] == '-')
+		{
+			if (isdigit(list.inst_oper[1][1]))
+				index++;
+			else
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lin_num);
+				free(list.Solve_line), fclose(list.Fd);
+				Destroy(&list), exit(EXIT_FAILURE);
+			}
+		}
+
+		while ((list.inst_oper)[1][index])
+		{
+			if (isdigit((list.inst_oper)[1][index]))
+				index++;
+			else
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", lin_num);
+				free(list.Solve_line), fclose(list.Fd);
+				Destroy(&list), exit(EXIT_FAILURE);
+			}
+		}
 		Push_Stack(&list, atoi((list.inst_oper)[1]));
+	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-		free(list.Solve_line);
-		fclose(list.Fd);
-		Destroy(&list);
+		free(list.Solve_line), fclose(list.Fd),	Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }

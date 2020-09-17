@@ -1,2 +1,3 @@
 push -45
-pall 
+pall
+push - 3
