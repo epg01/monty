@@ -80,7 +80,7 @@ void _rotl(stack_t **stack, unsigned int lin_num)
 	(void)stack;
 	(void)lin_num;
 
-	if (list.Size)
+	if (list.Size > 1)
 	{
 		stack_t *Element;
 
