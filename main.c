@@ -24,25 +24,25 @@ int main(int argc, char *argv[])
 {
 	FILE *fd;
 	char *line = NULL;
-	size_t len = 0, line_num;
-	ssize_t nread;
-
+	size_t len = 0, line_num = 1;
 	void (*Pointer_Function)(stack_t **, unsigned int);
 
 	if (argc != 2)
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
 	list.Fd = fd;
-	line_num = 1;
-	while ((nread = getline(&line, &len, fd)) != -1)
+	while (getline(&line, &len, fd) != EOF)
 	{
 		list.Solve_line = line;
 		(list.inst_oper)[0] = strtok(line, "\t\n ");
+
+		if (list.inst_oper[0][0] == '#')
+		{
+			free(line), line = list.inst_oper[0] = NULL;
+			continue;
+		}
 		(list.inst_oper)[1] = strtok(NULL, "\t\n ");
 		if (list.inst_oper[0])
 		{
@@ -54,8 +54,7 @@ int main(int argc, char *argv[])
 				char *string =  list.inst_oper[0];
 
 				fprintf(stderr, s, line_num, string);
-				free(line), fclose(list.Fd);
-				Destroy(&list), exit(EXIT_FAILURE);
+				free(line), fclose(list.Fd), Destroy(&list), exit(EXIT_FAILURE);
 			}
 		}
 		line_num++, free(line),	line = NULL, len  = 0;

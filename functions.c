@@ -120,7 +120,7 @@ void _swap(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", lin_num);
-		free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
+		free(list.inst_oper[0]), fclose(list.Fd), Destroy(&list);
 		exit(EXIT_FAILURE);
 	}
 }
