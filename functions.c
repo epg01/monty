@@ -12,7 +12,7 @@ void _push(stack_t **stack, unsigned int lin_num)
 	int index = 0;
 	(void)stack;
 
-	if (list.inst_oper[1][index] == '-' || list.inst_oper[1][index] == '+')
+	if (list.inst_oper[1][index] == '-')
 		index++;
 
 	while (list.inst_oper[1] && (list.inst_oper)[1][index])
