@@ -37,16 +37,24 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 
-}instruction_t;
-
+} instruction_t;
+/**
+ * struct List_ - structure to keep data
+ * @Head: pointer to head of structure
+ * @Size: Size of list
+ * @Tail: function to tail of structure
+ * @inst_oper:token of strtok
+ * @Fd: file descriptor
+ * @Solve_line: free the memory from the line
+ */
 typedef struct List_
 {
 	int Size;
 	struct stack_s *Head;
 	struct stack_s *Tail;
 	char *inst_oper[2];
-	char **Solve_Line;
 	FILE *Fd;
+	char *Solve_line;
 } List;
 
 /*
@@ -79,19 +87,19 @@ List list;
 void (*get_op(char *inst_oper))(stack_t **stack, unsigned int lin_num);
 
 /* functions to instructions*/
-
 void _push(stack_t **stack, unsigned int lin_num);
+void _pop(stack_t **stack, unsigned int lin_num);
 void _pall(stack_t **stack, unsigned int lin_num);
+void _pint(stack_t **stack, unsigned int lin_num);
+void _swap(stack_t **stack, unsigned int lin_num);
 void _sub(stack_t **stack, unsigned int lin_num);
+void _add(stack_t **stack, unsigned int lin_num);
 void _mul(stack_t **stack, unsigned int lin_num);
-void _div(stack_t **stack, unsigned int lin_num);
 void _mod(stack_t **stack, unsigned int lin_num);
+void _div(stack_t **stack, unsigned int lin_num);
 void _pchar(stack_t **stack, unsigned int lin_num);
 void _pstr(stack_t **stack, unsigned int lin_num);
 void _rotl(stack_t **stack, unsigned int lin_num);
-void _pint(stack_t **stack, unsigned int lin_num);
-void _pop(stack_t **stack, unsigned int lin_num);
-void _swap(stack_t **stack, unsigned int lin_num);
-void _add(stack_t **stack, unsigned int lin_num);
+void _nop(stack_t **stack, unsigned int lin_num);
 
 #endif

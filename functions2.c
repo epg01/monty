@@ -20,7 +20,7 @@ void _add(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		printf("L%d: can't add, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't add, stack too short\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -45,7 +45,7 @@ void _sub(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		printf("L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -70,7 +70,7 @@ void _mul(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		printf("L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -95,11 +95,11 @@ void _div(stack_t **stack, unsigned int lin_num)
 		if (Number1)
 			Push_Stack(&list, Number2 / Number1);
 		else
-			printf("No se puede dividir por cero");
+			fprintf(stderr, "No se puede dividir por cero");
 	}
 	else
 	{
-		printf("L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -125,7 +125,7 @@ void _mod(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-		printf("L%d: can't sub, stack too short\n", lin_num);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }

@@ -1,5 +1,16 @@
 #include "monty.h"
 /**
+ * _nop- function does anything
+ * @stack: double pointer to doubly linked list
+ * @lin_num: number of line to be analize
+ * Return: none
+ */
+void _nop(stack_t **stack, unsigned int lin_num)
+{
+	(void)stack;
+	(void)lin_num;
+}
+/**
  * _pchar- prints the char at the top of the stack
  * @stack: double pointer to doubly linked list
  * @lin_num: number of line to be analize
@@ -11,17 +22,17 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 
 	if (list.Size)
 	{
-		if (list.Head->n > 32 && list.Head->n <= 126)
+		if (list.Head->n > 0 && list.Head->n <= 122)
 			printf("%c\n", list.Head->n);
 		else
 		{
-			printf("L%d: can't pchar, value out of range\n", lin_num);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", lin_num);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
-		printf("L%d: can't pchar, stack empty\n", lin_num);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -34,7 +45,7 @@ void pstr_stack(stack_t *stack)
 {
 	if (stack)
 	{
-		if ((stack->n >= 32 && stack->n <= 126) && (stack->n != 48))
+		if (stack->n > 0 && stack->n <= 122)
 		{
 			printf("%c", stack->n);
 			pstr_stack(stack->next);

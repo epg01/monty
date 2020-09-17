@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * List_Ins_Next - Insert a nee node in the estructure list
  * @list: pointer to estructure
@@ -7,7 +6,6 @@
  * @Data: value on node
  * Return: zero or one
  */
-
 int List_Ins_Next(List *list, stack_t *element, int Data)
 {
 	stack_t *new_element = NULL;
@@ -15,9 +13,8 @@ int List_Ins_Next(List *list, stack_t *element, int Data)
 	new_element = (stack_t *)malloc(sizeof(stack_t));
 	if (!new_element)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free(*(list->Solve_Line)), fclose(list->Fd);
-		Destroy(list), exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: malloc failed\n"), free(list->Solve_line);
+		fclose(list->Fd), Destroy(list), exit(EXIT_FAILURE);
 	}
 	new_element->n = Data;
 	if (!element)
@@ -118,7 +115,7 @@ int Pop_Stack(List *list)
 }
 
 /**
- * Pop_Stack- Remove the node on the top of the queue
+ * Pop_Queue- Remove the node on the top of the queue
  * @list: pointer to structure
  * Return: the node removed
  */

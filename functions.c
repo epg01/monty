@@ -17,12 +17,13 @@ void _push(stack_t **stack, unsigned int lin_num)
 
 	while (list.inst_oper[1] && (list.inst_oper)[1][index])
 	{
-		if ((isdigit((list.inst_oper)[1][index])))
+		if (isdigit((list.inst_oper)[1][index]))
 			index++;
 		else
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-			free(*(list.Solve_Line)), fclose(list.Fd);
+			free(list.Solve_line);
+			fclose(list.Fd);
 			Destroy(&list);
 			exit(EXIT_FAILURE);
 		}
@@ -32,9 +33,9 @@ void _push(stack_t **stack, unsigned int lin_num)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", lin_num);
-		free(*(list.Solve_Line)), fclose(list.Fd);
+		free(list.Solve_line);
+		fclose(list.Fd);
 		Destroy(&list);
-		exit(EXIT_FAILURE);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -86,7 +87,7 @@ void _pop(stack_t **stack, unsigned int lin_num)
 		Pop_Stack(&list);
 	else
 	{
-		printf("L%d: can't pop an empty stack", lin_num);
+		fprintf(stderr, "L%d: can't pop an empty stack", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -109,7 +110,7 @@ void _swap(stack_t **stack, unsigned int lin_num)
 	}
 	else
 	{
-	printf("L%d: can't swap, stack too shortc\n", lin_num);
+		fprintf(stderr, "L%d: can't swap, stack too shortc\n", lin_num);
 		exit(EXIT_FAILURE);
 	}
 }
