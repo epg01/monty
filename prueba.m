@@ -1,11 +1,2 @@
-spall dksmk  lds
-
-                      
-de
-
-                    
-
-                         push 
-                                     push 3
-            pall
-
+push 2
+pushe 4

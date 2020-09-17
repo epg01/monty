@@ -54,6 +54,8 @@ int main(int argc, char *argv[])
 				char *string =  list.inst_oper[0];
 
 				fprintf(stderr, s, line_num, string);
+				free(list.inst_oper[0]), fclose(list.Fd);
+				Destroy(&list), exit(EXIT_FAILURE);
 			}
 		}
 		line_num++, free(line),	line = NULL, len  = 0;
