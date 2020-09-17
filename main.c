@@ -53,13 +53,8 @@ int main(int argc, char *argv[])
 			else
 				fprintf(stderr, "L%d: unknown instruction %s\n", (int)line_num, list.inst_oper[0]);
 		}
-		line_num++;
-		free(line);
-		line = NULL;
-		len  = 0;
+		line_num++, free(line),	line = NULL, len  = 0;
 	}
-	fclose(fd);
-	free(line);
-	Destroy(&list);
+	fclose(fd), free(line), Destroy(&list);
 	return (0);
 }
