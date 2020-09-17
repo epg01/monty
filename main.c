@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		list.Solve_line = line;
 		(list.inst_oper)[0] = strtok(line, "\t\n ");
 
-		if (list.inst_oper[0][0] == '#')
+		if (list.inst_oper[0] && list.inst_oper[0][0] == '#')
 		{
 			free(line), line = list.inst_oper[0] = NULL;
 			continue;
