@@ -22,7 +22,7 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 
 	if (list.Size)
 	{
-		if (list.Head->n > 31 && list.Head->n <= 122)
+		if (list.Head->n > 0 && list.Head->n <= 127)
 			printf("%c\n", list.Head->n);
 		else
 		{
