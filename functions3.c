@@ -22,21 +22,22 @@ void _pchar(stack_t **stack, unsigned int lin_num)
 
 	if (list.Size)
 	{
-		if (list.Head->n >= 0 && list.Head->n < 127)
-			printf("%c\n", list.Head->n);
-		else
+		if (list.Head->n < 0 || list.Head->n > 127)
 		{
-			fprintf(stderr, "L%d: can't pchar, value out of range\n", lin_num);
-			free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
-			exit(EXIT_FAILURE);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+			free(list.Solve_line), fclose(list.Fd);
+			Destroy(&list), exit(EXIT_FAILURE);
 		}
+		putchar(list.Head->n);
+		putchar('\n');
 	}
 	else
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", lin_num);
-		free(list.inst_oper[0]) ,fclose(list.Fd), Destroy(&list);
-		exit(EXIT_FAILURE);
+		free(list.Solve_line), fclose(list.Fd);
+		Destroy(&list), exit(EXIT_FAILURE);
 	}
+
 }
 /**
  * pstr_stack- prints the str of the stack
