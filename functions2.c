@@ -94,7 +94,7 @@ void _div(stack_t **stack, unsigned int lin_num)
 {
 	(void)stack;
 
-	if (list.Size)
+	if (list.Size > 1)
 	{
 		int Number1, Number2;
 
