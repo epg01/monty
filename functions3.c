@@ -47,7 +47,7 @@ void pstr_stack(stack_t *stack)
 {
 	if (stack)
 	{
-		if (stack->n > 0 && stack->n <= 122)
+		if (stack->n > 0 && stack->n < 127)
 		{
 			printf("%c", stack->n);
 			pstr_stack(stack->next);
