@@ -1,7 +1,10 @@
 #include "monty.h"
 
+#define s "L%d: unknown instruction %s\n"
+
 /**
  * Destroy - Function destroy
+ * @list: Pointer to data structure of type List.
  */
 
 void Destroy(List *list)
@@ -21,9 +24,9 @@ int main(int argc, char *argv[])
 {
 	FILE *fd;
 	char *line = NULL;
-	size_t len = 0;
+	size_t len = 0, line_num;
 	ssize_t nread;
-	size_t line_num;
+
 	void (*Pointer_Function)(stack_t **, unsigned int);
 
 	if (argc != 2)
@@ -31,14 +34,12 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	list.Fd = fd;
 	line_num = 1;
 	while ((nread = getline(&line, &len, fd)) != -1)
@@ -51,7 +52,11 @@ int main(int argc, char *argv[])
 			if (Pointer_Function)
 				Pointer_Function(NULL, line_num);
 			else
-				fprintf(stderr, "L%d: unknown instruction %s\n", (int)line_num, list.inst_oper[0]);
+			{
+				char *string =  list.inst_oper[0];
+
+				fprintf(stderr, s, (int)line_num, string);
+			}
 		}
 		line_num++, free(line),	line = NULL, len  = 0;
 	}
