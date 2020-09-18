@@ -1,3 +1,4 @@
+
 #include "monty.h"
 
 /**
@@ -37,10 +38,7 @@ void _push(stack_t **stack, unsigned int lin_num)
 				Destroy(&list), exit(EXIT_FAILURE);
 			}
 		}
-		if (list.State)
-			Push_Stack(&list, atoi((list.inst_oper)[1]));
-		else
-			Push_Queue(&list, atoi((list.inst_oper)[1]));
+		Push_Stack(&list, atoi((list.inst_oper)[1]));
 	}
 	else
 	{
