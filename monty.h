@@ -55,6 +55,7 @@ typedef struct List_
 	char *inst_oper[2];
 	FILE *Fd;
 	char *Solve_line;
+	int State;
 } List;
 
 /*
