@@ -60,16 +60,17 @@ int main(int argc, char *argv[])
 	list.Fd = fd, list.State = 1;
 	while (getline(&line, &len, fd) != EOF)
 	{
-		list.Solve_line = line;
-		(list.inst_oper)[0] = strtok(line, "\t\n ");
-
+		list.Solve_line = line, (list.inst_oper)[0] = strtok(line, "\t\n ");
 		if (list.inst_oper[0] && list.inst_oper[0][0] == '#')
 		{
-			free(line), line = list.inst_oper[0] = NULL;
+			free(line), line = list.inst_oper[0] = NULL, line_num++;
 			continue;
 		}
 		if (stack_or_queue(list.inst_oper[0]))
+		{
+			line_num++;
 			continue;
+		}
 		(list.inst_oper)[1] = strtok(NULL, "\t\n ");
 		if (list.inst_oper[0])
 		{
@@ -78,12 +79,11 @@ int main(int argc, char *argv[])
 				Pointer_Function(NULL, line_num);
 			else
 			{
-				string =  list.inst_oper[0];
-				fprintf(stderr, s, line_num, string);
+				string =  list.inst_oper[0], fprintf(stderr, s, line_num, string);
 				free(line), fclose(list.Fd), Destroy(&list), exit(EXIT_FAILURE);
 			}
 		}
-		line_num++, free(line),line = NULL, len  = 0;
+		line_num++, free(line), line = NULL, len  = 0;
 	}
 	fclose(fd), free(line), Destroy(&list);
 	return (0);
