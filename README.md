@@ -44,7 +44,7 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 
 ---
 <p align="center">
-    <h2 align="center">Made by, Laura Andrea Álvarez</h2>
+    <h2 align="center"> </h2>
       <p align="center">
         <a href="https://twitter.com/apla02" target="_blank">
             <img alt="twitter_page" src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" style="float: center; margin-right: 10px" height="50" width="50">
